@@ -1,25 +1,23 @@
 package org.example.enaaskills.modeles;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 import java.util.List;
 
 
 @Entity
-public class SousCompetence {
+public class Apprenant {
 
     @Id
     @GeneratedValue
     private Long id;
 
     private String nom;
-
-    @ManyToOne
-    private Competence competence;
-
-    @OneToMany(mappedBy = "sousCompetence")
-    private List<ValidationSousCompetence> validations;
-
+    private String prenom;
+    private String email;
 
     public Long getId() {
         return id;
@@ -37,12 +35,20 @@ public class SousCompetence {
         this.nom = nom;
     }
 
-    public Competence getCompetence() {
-        return competence;
+    public String getPrenom() {
+        return prenom;
     }
 
-    public void setCompetence(Competence competence) {
-        this.competence = competence;
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public List<ValidationSousCompetence> getValidations() {
@@ -52,4 +58,7 @@ public class SousCompetence {
     public void setValidations(List<ValidationSousCompetence> validations) {
         this.validations = validations;
     }
+
+    @OneToMany(mappedBy = "apprenant")
+    private List<ValidationSousCompetence> validations;
 }
