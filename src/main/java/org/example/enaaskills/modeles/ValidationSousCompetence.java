@@ -17,8 +17,7 @@ public class ValidationSousCompetence {
 
     private StatutValidation valide;
 
-    @ManyToOne
-    private Apprenant apprenant;
+
 
     @ManyToOne
     private SousCompetence sousCompetence;
@@ -41,13 +40,7 @@ public class ValidationSousCompetence {
         this.valide = valide;
     }
 
-    public Apprenant getApprenant() {
-        return apprenant;
-    }
 
-    public void setApprenant(Apprenant apprenant) {
-        this.apprenant = apprenant;
-    }
 
     public SousCompetence getSousCompetence() {
         return sousCompetence;

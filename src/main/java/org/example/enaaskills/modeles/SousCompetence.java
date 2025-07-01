@@ -11,7 +11,6 @@ public class SousCompetence {
     @Id
     @GeneratedValue
     private Long id;
-
     private String nom;
 
     @ManyToOne
