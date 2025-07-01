@@ -2,18 +2,19 @@ package org.example.enaaskills.controllers;
 
 
 import org.example.enaaskills.modeles.SousCompetence;
+import org.example.enaaskills.repositorys.SousCompetenceRepository;
 import org.example.enaaskills.services.SousCompetenceService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/SousCompetence")
 public class SousCompetenceController {
 
-
+    @Autowired
+    private SousCompetenceRepository sousCompetenceRepository;
     @Autowired
     private SousCompetenceService sousCompetenceService;
 
@@ -25,5 +26,15 @@ public class SousCompetenceController {
     @PostMapping("/add-SousCompetence")
     public SousCompetence addSousCompetence(@RequestBody SousCompetence sousCompetence) {
         return sousCompetenceService.addSousCompetence(sousCompetence);
+    }
+
+    @GetMapping("/getSCByC/{id}")
+    public List<SousCompetence> getAllSousCompetence(@PathVariable long id) {
+        return sousCompetenceRepository.findCompetenceByCompetenceId(id);
+    }
+
+    @GetMapping("/getCompetence/{id}")
+    public List<SousCompetence> getCompetence(@PathVariable long id) {
+        return sousCompetenceService.getAllSousCompetences(id);
     }
 }

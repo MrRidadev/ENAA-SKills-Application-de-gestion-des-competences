@@ -4,6 +4,7 @@ import org.example.enaaskills.modeles.ValidationSousCompetence;
 import org.example.enaaskills.services.ValidationSousCompetenceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,7 +23,7 @@ public class ValidationSousCompetenceController {
 
 
     @PostMapping("/add-validation")
-    public ValidationSousCompetence ajouterValidationSousCompetence(ValidationSousCompetence v) {
+    public ValidationSousCompetence ajouterValidationSousCompetence(@RequestBody ValidationSousCompetence v) {
         return validationSousCompetenceService.addValidationSousCompetence(v);
     }
 }

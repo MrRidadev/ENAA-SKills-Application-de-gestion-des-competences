@@ -1,9 +1,6 @@
 package org.example.enaaskills.modeles;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
@@ -15,6 +12,7 @@ public class ValidationSousCompetence {
     @GeneratedValue
     private Long id;
 
+    @Enumerated(EnumType.STRING)
     private StatutValidation valide;
 
 

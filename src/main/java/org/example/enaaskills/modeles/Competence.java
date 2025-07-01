@@ -1,6 +1,7 @@
 package org.example.enaaskills.modeles;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -13,6 +14,10 @@ public class Competence {
     private Long id;
 
     private String nom;
+
+    @OneToMany(mappedBy = "competence")
+    @JsonManagedReference
+    private List<SousCompetence> sousCompetences;
 
     public Long getId() {
         return id;
@@ -37,7 +42,4 @@ public class Competence {
     public void setSousCompetences(List<SousCompetence> sousCompetences) {
         this.sousCompetences = sousCompetences;
     }
-
-    @OneToMany(mappedBy = "competence", cascade = CascadeType.ALL)
-    private List<SousCompetence> sousCompetences;
 }

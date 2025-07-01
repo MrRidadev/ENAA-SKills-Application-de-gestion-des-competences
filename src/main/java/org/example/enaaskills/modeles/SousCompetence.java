@@ -1,5 +1,7 @@
 package org.example.enaaskills.modeles;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -14,6 +16,7 @@ public class SousCompetence {
     private String nom;
 
     @ManyToOne
+    @JsonIgnore
     private Competence competence;
 
     @OneToMany(mappedBy = "sousCompetence")
