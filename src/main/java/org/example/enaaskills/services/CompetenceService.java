@@ -19,4 +19,9 @@ public class CompetenceService {
     public Competence ajouterCompetence(Competence competence) {
         return competenceRepository.save(competence);
     }
+
+    // modifier les competence
+    public Competence updateCompetence(Competence competence) {
+        return competenceRepository.save(competence);
+    }
 }

@@ -15,9 +15,20 @@ public class Competence {
 
     private String nom;
 
+    @Enumerated(EnumType.STRING)
+    private StatutValidation statutValidation;
+
     @OneToMany(mappedBy = "competence")
     @JsonManagedReference
     private List<SousCompetence> sousCompetences;
+
+    public StatutValidation getStatutValidation() {
+        return statutValidation;
+    }
+
+    public void setStatutValidation(StatutValidation statutValidation) {
+        this.statutValidation = statutValidation;
+    }
 
     public Long getId() {
         return id;
