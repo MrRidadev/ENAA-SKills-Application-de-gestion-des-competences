@@ -4,6 +4,7 @@ package org.example.enaaskills.controllers;
 import org.example.enaaskills.modeles.Competence;
 import org.example.enaaskills.services.CompetenceService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -26,4 +27,6 @@ public class CompetenceController {
     public Competence modifierCompetence(@RequestBody Competence competence) {
         return competenceService.updateCompetence(competence);
     }
+
+
 }

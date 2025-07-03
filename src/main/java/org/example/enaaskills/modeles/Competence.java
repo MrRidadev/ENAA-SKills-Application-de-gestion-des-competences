@@ -16,7 +16,7 @@ public class Competence {
     private String nom;
 
     @Enumerated(EnumType.STRING)
-    private StatutValidation statutValidation;
+    private StatutValidation statutValidation = StatutValidation.EN_ATTENTE;
 
     @OneToMany(mappedBy = "competence")
     @JsonManagedReference
@@ -53,4 +53,6 @@ public class Competence {
     public void setSousCompetences(List<SousCompetence> sousCompetences) {
         this.sousCompetences = sousCompetences;
     }
+
+
 }

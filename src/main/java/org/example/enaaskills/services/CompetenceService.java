@@ -1,9 +1,13 @@
 package org.example.enaaskills.services;
 
 import org.example.enaaskills.modeles.Competence;
+import org.example.enaaskills.modeles.SousCompetence;
+import org.example.enaaskills.modeles.StatutValidation;
 import org.example.enaaskills.repositorys.CompetenceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class CompetenceService {
@@ -24,4 +28,6 @@ public class CompetenceService {
     public Competence updateCompetence(Competence competence) {
         return competenceRepository.save(competence);
     }
+
+
 }

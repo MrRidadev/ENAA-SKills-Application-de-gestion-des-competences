@@ -1,5 +1,7 @@
 package org.example.enaaskills.services;
 
+import org.example.enaaskills.DTOs.SousCompetenceDTO;
+import org.example.enaaskills.modeles.Competence;
 import org.example.enaaskills.modeles.SousCompetence;
 import org.example.enaaskills.repositorys.CompetenceRepository;
 import org.example.enaaskills.repositorys.SousCompetenceRepository;
@@ -21,9 +23,18 @@ public class SousCompetenceService {
     }
 
     // ajouter SousCompetence
-    public SousCompetence addSousCompetence(SousCompetence sousCompetence) {
+    public SousCompetence addSousCompetence(SousCompetenceDTO dto) {
+        Competence competence = competenceRepository.findById(dto.getCompetenceId())
+                .orElseThrow(() -> new RuntimeException("Compétence introuvable"));
+
+        SousCompetence sousCompetence = new SousCompetence();
+        sousCompetence.setNom(dto.getNom());
+        sousCompetence.setStatutValidation(dto.getStatutValidation());
+        sousCompetence.setCompetence(competence);
+
         return sousCompetenceRepository.save(sousCompetence);
     }
+
 
     public List<SousCompetence> getAllSousCompetences(long id) {
         if (competenceRepository.existsById(id)) {
@@ -33,6 +44,11 @@ public class SousCompetenceService {
             // Retourne une liste vide
             return new ArrayList<>();
         }
+    }
+
+    //modifier SousCompetence
+    public SousCompetence updateSousCompetence(SousCompetence sousCompetence) {
+        return sousCompetenceRepository.save(sousCompetence);
     }
 
 }

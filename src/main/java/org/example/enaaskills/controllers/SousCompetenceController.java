@@ -1,6 +1,7 @@
 package org.example.enaaskills.controllers;
 
 
+import org.example.enaaskills.DTOs.SousCompetenceDTO;
 import org.example.enaaskills.modeles.SousCompetence;
 import org.example.enaaskills.repositorys.SousCompetenceRepository;
 import org.example.enaaskills.services.SousCompetenceService;
@@ -24,8 +25,8 @@ public class SousCompetenceController {
 
     // ajouter SousCompetence
     @PostMapping("/add-SousCompetence")
-    public SousCompetence addSousCompetence(@RequestBody SousCompetence sousCompetence) {
-        return sousCompetenceService.addSousCompetence(sousCompetence);
+    public SousCompetence addSousCompetence(@RequestBody SousCompetenceDTO souscompetenceDTO) {
+        return sousCompetenceService.addSousCompetence(souscompetenceDTO);
     }
 
     @GetMapping("/getSCByC/{id}")
@@ -37,4 +38,10 @@ public class SousCompetenceController {
     public List<SousCompetence> getCompetence(@PathVariable long id) {
         return sousCompetenceService.getAllSousCompetences(id);
     }
+
+    @PutMapping("/putSousCompetence")
+    public SousCompetence update(@RequestBody SousCompetence sousCompetence) {
+        return sousCompetenceService.updateSousCompetence(sousCompetence);
+    }
+
 }
