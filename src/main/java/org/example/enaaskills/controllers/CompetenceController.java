@@ -28,5 +28,9 @@ public class CompetenceController {
         return competenceService.updateCompetence(competence);
     }
 
+    @PostMapping("/verifier-validation/{id}")
+    public Competence calculerStatut(@PathVariable Long id) {
+        return competenceService.calculerStatutValidation(id);
+    }
 
 }
